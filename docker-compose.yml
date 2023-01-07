@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  frontend:
+    container_name: DRfrontend
+    build: ./frontend
+    volumes:
+      - ./frontend:/frontend
+      - front_node_modules:/frontend/node_modules
+    ports:
+      - 5173:5173
+    tty: true
+
+  backend:
+    container_name: DRbackend
+    build: ./backend
+    volumes:
+      - ./backend:/backend
+    ports:
+      - 8000:8000
+    tty: true
+      
+volumes:
+  front_node_modules:
